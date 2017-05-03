@@ -31,15 +31,39 @@ public int recursiveLinearSearch(int catNumToFind, int startIndex)
   //complete this method
   return -1;
 }
+
 public int binarySearch(int catNumToFind)
 {
-  //complete this method    
+  
+  //complete this methodpublic int binarySearch(int [] a, int target){
+  int high = store.length -1;
+  int low = 0;
+  while(low <= high)
+  {
+    int guess = (high + low)/2;
+    if(store[guess] > target)
+      high = guess -1;
+    else if(store[guess] < target)
+      low = guess+1;
+    else
+      return guess;
+  }   
   return -1;
+  
 }
+
 public int recursiveBinarySearch(int catNumToFind, int nLow, int nHigh)
 {
-  //complete this method    
-  return -1;
+  //complete this method  
+    if(nLow > nHigh)
+      return -1;
+    int guess = (nHigh + nLow)/2;
+    if(store[guess] == catNumToFind)
+      return guess;
+    else if(store[guess] > catNumToFind)
+      return recursiveBinarySearch(store,catNumToFind,nLow,guess-1);
+    else 
+      return recursiveBinarySearch(store,catNumToFind,guess+1,nHigh);
 }
 public void setup()
 {
